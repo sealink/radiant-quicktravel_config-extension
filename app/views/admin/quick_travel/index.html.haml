@@ -1,0 +1,16 @@
+%h1
+  QuickTravel
+
+.setting_block
+  %h2
+    Clear Caches
+
+  %p
+    Core Cache: (e.g. countries, locations, passenger types)
+    Cleared every midnight.
+    = link_to 'Manually Clear Now', clear_core_caches_admin_quick_travel_path, :method => :post
+
+  %p
+    Other Cache: (e.g. Trips/Routes/Properties)
+    Cleared periodically (e.g. hourly)
+    = link_to 'Manually Clear Now', clear_other_caches_admin_quick_travel_path, :method => :post
