@@ -21,6 +21,12 @@ namespace :radiant do
 
         end
       end
+
+
+      desc "Copies public assets of the extension to the instance public/ directory."
+      task :update => :environment do
+        RadiantExtensionHelper.copy_assets(:quicktravel_config)
+      end
     end
   end
 end

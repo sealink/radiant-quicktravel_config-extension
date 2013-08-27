@@ -14,9 +14,29 @@ class QuicktravelConfigExtension < Radiant::Extension
     tab "Content" do
       add_item "QuickTravel", "/admin/quick_travel"
     end
+
+    load_config
   end
 
 
   def deactivate
+  end
+
+
+  private
+
+
+  def load_config
+    @config_file_name = 'quicktravel'
+    @configurator = QuickTravel
+
+    return unless config_exists?
+
+    configure
+
+    unless QuickTravel.config.url.start_with?("https")
+      message = "ERROR: #{config_file} is configured to use HTTP. Please use HTTPS."
+      error message
+    end
   end
 end

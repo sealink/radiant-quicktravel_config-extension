@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
 
   # For shared and nested layouts
   s.add_dependency('radius')
+  s.add_dependency('radiant_extension_helper')
   s.add_dependency('quick_travel')
 
   ## List your development dependencies here. Development dependencies are
