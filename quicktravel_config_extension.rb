@@ -34,7 +34,18 @@ class QuicktravelConfigExtension < Radiant::Extension
 
     configure
 
-    unless QuickTravel.config.url.start_with?("https")
+    ensure_config_secure
+  end
+
+
+  LOCAL_HOSTS = %w(localhost 0.0.0.0 127.0.0.1)
+
+  def ensure_config_secure
+    uri = URI.parse(QuickTravel.config.url)
+    secure = uri.scheme == 'https'
+    local_host = LOCAL_HOSTS.include?(uri.host)
+
+    if !secure && !local_host
       message = "ERROR: #{config_file} is configured to use HTTP. Please use HTTPS."
       error message
     end
