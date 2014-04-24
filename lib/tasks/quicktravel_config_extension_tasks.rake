@@ -10,13 +10,13 @@ namespace :radiant do
 
           desc "Clears core caches"
           task :core => :environment do
-            Cache.clear_core_caches
+            Cache.clear_core
           end
 
 
           desc "Clears other caches"
           task :other => :environment do
-            Cache.clear_other_caches
+            Cache.clear_other
           end
 
         end
