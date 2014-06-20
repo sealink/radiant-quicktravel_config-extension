@@ -1,14 +1,14 @@
 class Cache
   def self.core_types
     %w(
-      all_product_types
-      all_countries
-      all_property_types
-      all_vehicle_types
-      all_payment_types
-      all_locations
-      all_passenger_types
-      all_regions
+      ProductType
+      Country
+      PropertyType
+      VehicleType
+      PaymentType
+      Location
+      PassengerType
+      Region
     )
   end
 
@@ -23,7 +23,7 @@ class Cache
   end
 
   def self.clear_core
-    core_types.each { |key| QuickTravel::Cache.cache_store.delete(key) }
+    core_types.each { |key| QuickTravel::Cache.cache_store.delete("QuickTravel::#{key}.all") }
   end
 
   def self.clear_other
