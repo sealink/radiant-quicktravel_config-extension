@@ -34,7 +34,12 @@ class QuicktravelConfigExtension < Radiant::Extension
 
     configure
 
-    ensure_config_secure
+    if QuickTravel.config.url == 'mock'
+      require 'quick_travel/mock'
+      return
+    else
+      ensure_config_secure
+    end
   end
 
 
