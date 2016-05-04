@@ -50,7 +50,7 @@ class QuicktravelConfigExtension < Radiant::Extension
     secure = uri.scheme == 'https'
     local_host = LOCAL_HOSTS.include?(uri.host)
 
-    if !secure && !local_host
+    if !secure && !local_host && !ENV['ALLOW_INSECURE_QT']
       message = "ERROR: #{config_file} is configured to use HTTP. Please use HTTPS."
       error message
     end
