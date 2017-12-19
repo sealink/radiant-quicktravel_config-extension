@@ -19,6 +19,7 @@ class Cache
       trip_routes
       properties
       geocode
+      resource
     )
   end
 
@@ -27,6 +28,6 @@ class Cache
   end
 
   def self.clear_other
-    other_types.each { |key| QuickTravel::Cache.cache_store.delete_matched /#{key}_*/ }
+    other_types.each { |key| QuickTravel::Cache.cache_store.delete_matched "#{key}_*" }
   end
 end
