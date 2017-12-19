@@ -4,5 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This changelog adheres to [Keep a CHANGELOG](http://keepachangelog.com/).  
 
 ## Unreleased
+### Changed
+- [DO-137] Correct the cache key
+
 ### Added
 - [TT-1392] Changelog file
